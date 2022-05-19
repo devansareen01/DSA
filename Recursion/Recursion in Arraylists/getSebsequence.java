@@ -14,7 +14,7 @@ public class Main {
   public static ArrayList<String> gss(String str) {
     if (str.length() == 0) {
       ArrayList<String> bres = new ArrayList<>();
-      bres.add("");///empty 
+      bres.add("");
       return bres;
     }
     
