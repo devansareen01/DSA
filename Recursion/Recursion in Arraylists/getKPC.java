@@ -10,7 +10,7 @@ public class Main {
     System.out.println(ans);
   }
 
-  static String[] codes = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+  static String[] codes = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};//keypad codes
 
 
 
