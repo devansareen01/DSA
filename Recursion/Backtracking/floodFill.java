@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+  // haha comment for test
 
   public static void main(String[] args) throws Exception {
     Scanner scn = new Scanner(System.in);
@@ -33,5 +34,5 @@ public class Main {
     floodfill(maze, sr, sc + 1, asf + "r", visited);
     visited[sr][sc] = false;
 
-}
   }
+}
