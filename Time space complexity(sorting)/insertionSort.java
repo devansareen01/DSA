@@ -1,14 +1,16 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class insertionSort {
 
   public static void insertionSort(int[] arr) {
-    //write your code here
+    // write your code here
     for (int i = 1; i < arr.length; i++) {
-      for (int j = i - 1; j >= 0; j--) {    /*in insertion sort we imagine that first element is sorted
-                                            and we compare next element using reverse bubble sort*/
-        if (isGreater(arr, j, j + 1))       // time complexity of insertion sort is O(n)and in worst case it is O(n^2)
+      for (int j = i - 1; j >= 0; j--) { /*
+                                          * in insertion sort we imagine that first element is sorted
+                                          * and we compare next element using reverse bubble sort
+                                          */
+        if (isGreater(arr, j, j + 1)) // time complexity of insertion sort is O(n)and in worst case it is O(n^2)
           swap(arr, j, j + 1);
         else
           break;

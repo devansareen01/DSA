@@ -1,26 +1,25 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class selectionSort {
 
   public static void selectionSort(int[] arr) {
     int n = arr.length;
-    for (int i = 0; i < n - 1; i++) {       //intiallyzing first element as min
+    for (int i = 0; i < n - 1; i++) { // intiallyzing first element as min
       int minidx = i;
       for (int j = i + 1; j < n; j++) {
-        if (isSmaller(arr, j, minidx)) {    // finding min from whole arrray
+        if (isSmaller(arr, j, minidx)) { // finding min from whole arrray
           minidx = j;
         }
       }
-      swap(arr, i, minidx);                 // swapping min with ith index
+      swap(arr, i, minidx); // swapping min with ith index
     }
-
 
     // time complexity of selection sort is O(n^2)
 
   }
 
-// used for swapping ith and jth elements of array
+  // used for swapping ith and jth elements of array
   public static void swap(int[] arr, int i, int j) {
     System.out.println("Swapping " + arr[i] + " and " + arr[j]);
     int temp = arr[i];
@@ -28,7 +27,7 @@ public class Main {
     arr[j] = temp;
   }
 
-// return true if ith element is smaller than jth element
+  // return true if ith element is smaller than jth element
   public static boolean isSmaller(int[] arr, int i, int j) {
     System.out.println("Comparing " + arr[i] + " and " + arr[j]);
     if (arr[i] < arr[j]) {

@@ -1,17 +1,17 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class bubbleSort {
 
   public static void bubbleSort(int[] arr) {
-    //write your code here
-    for(int i =1;i<arr.length;i++){
-        for(int j=0;j<arr.length-i;j++){    // comparing adjancent elements and swapping them is---->>> Bubble sort
-            if(isSmaller(arr,j+1,j)) 
-                swap(arr,j+1,j);
-        }
+    // write your code here
+    for (int i = 1; i < arr.length; i++) {
+      for (int j = 0; j < arr.length - i; j++) { // comparing adjancent elements and swapping them is---->>> Bubble sort
+        if (isSmaller(arr, j + 1, j))
+          swap(arr, j + 1, j);
+      }
     }
-    
+
   }
 
   // used for swapping ith and jth elements of array
