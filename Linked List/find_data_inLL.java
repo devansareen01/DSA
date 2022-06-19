@@ -31,7 +31,7 @@ public class FindNodeInLL {
                 tail.next = newNode;
                 tail = tail.next;
             }
-            data = scn.nextInt();
+            data = scn.nextInt();//
         }
         return head;
     }
