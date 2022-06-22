@@ -1,17 +1,20 @@
 public class removeDupllicate {
 
-    public static void removeDupplicate(Node<Integer> head) {
-        Node<Integer> curr = head;
-        // Transverse list till the last node
-        while (curr != null) {
-            Node<Integer> temp = curr;
-            // compare current and next node and keep them deleting until it matches
-            while (temp != null && temp.data == curr.data) {
-                temp = temp.next;
-            }
-            curr.next = temp;
-            curr = curr.next;
+    public static Node<Integer> removeDupplicate(Node<Integer> head) {
+
+        Node<Integer> temp = head;
+        if (temp == null) {
+            return head;
         }
+        // Transverse list till end
+        // if next element mathces previous then skip this link and move forward
+        while (temp.next != null) {
+            if (temp.data == temp.next.data) {
+                temp.next = temp.next.next;
+            } else
+                temp = temp.next;
+        }
+        return head;
     }
 
     public static void main(String[] args) {
