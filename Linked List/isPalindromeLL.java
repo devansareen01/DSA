@@ -4,6 +4,7 @@ public class palindromelinkedList {
         Node<Integer> prev = null;
         while (cur != null) {
             Node<Integer> nextNode = cur.next;
+            
             cur.next = prev;
             prev = cur;
             cur = nextNode;
