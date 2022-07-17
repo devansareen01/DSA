@@ -29,12 +29,20 @@ public class QueueUsingArray {
 
     private void restructure() {
         int temp[] = data; // storing a new reference of our current data array in temp
-        data = new int[data.length * 2]; // doubling the length of the array and pointing it instead of old array
-        for (int i = 0; i < temp.length; i++) // copying the elements of old array into new array
+        data = new int[data.length * 2];
+        int index = 0; // doubling the length of the array and pointing it instead of old array
+        for (int i = front; i < temp.length; i++) // copying the elements of old array into new array
         {
-            data[i] = temp[i];
+            data[index] = temp[i];
+            index++; // first coping elements in same previous order from front to last
 
         }
+        for (int i = 0; i < front; i++) {// and then the elments that enter after d que
+            data[index] = temp[i];
+            index++;
+        }
+        front = 0;
+        rear = temp.length - 1;
     }
 
     public void enqueue(int element) {
