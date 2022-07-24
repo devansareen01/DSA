@@ -5,29 +5,55 @@ import java.util.Scanner;
 
 public class TreeUse {
 
-    public static TreeNode<Integer> takeInput(Scanner s) {
-        int n = s.nextInt();// n is the root data
-        TreeNode<Integer> root = new TreeNode<Integer>(n);
-        int childCount = s.nextInt(); // child count will tell us how many sub root would make
-        for (int i = 0; i < childCount; i++) {
-            TreeNode<Integer> child = takeInput(s);// it subroot is the last then subroot will retun to root and it
-                                                   // would be the subroot of our root
-            root.children.add(child);
+    public static TreeNode<Integer> takeInput() {
+        System.out.println("Enter root data");
+        Scanner scn = new Scanner(System.in);
+        // firstly we will take input of root and enque it in a que
+        // 2 when we take input of children of root levelwise we will deque root from
+        // que
+        int rootData = scn.nextInt();
+        TreeNode<Integer> root = new TreeNode<>(rootData);
+        QueueUsingLL<TreeNode<Integer>> pendingNodes = new QueueUsingLL<>();
+        pendingNodes.enqueue(root);
+        while (!pendingNodes.isEmpty()) {
+            try {
+                TreeNode<Integer> frontNode = pendingNodes.dequeue();
+                System.out.println("Enter the number of child of" + " " + frontNode.data);
+                int childCount = scn.nextInt();
+                for (int i = 0; i < childCount; i++) {
+                    System.out.println("Enter the data of" + " " + (i + 1) + "th child of" + " " + frontNode.data);
+                    int child = scn.nextInt();
+                    TreeNode<Integer> childNode = new TreeNode<>(child);
+                    frontNode.children.add(childNode);
+                    pendingNodes.enqueue(childNode);
+                }
+            } catch (queueEmptyException e) {
+                // should not come here
+                return null;
+            }
         }
         return root;
     }
 
     public static void print(TreeNode<Integer> root) {
-        String s = root.data + ":"; // in print function we will call first on root then we will call print function
-                                    // recursively on subroots
-        for (int i = 0; i < root.children.size(); i++) {
-            s += root.children.get(i).data + ",";
-        }
-        System.out.println(s);
-        for (int i = 0; i < root.children.size(); i++) {
-            print(root.children.get(i));
-        }
 
+        QueueUsingLL<TreeNode<Integer>> pendingNodes = new QueueUsingLL<>();
+        pendingNodes.enqueue(root);
+        while (!pendingNodes.isEmpty()) {
+            try {
+                TreeNode<Integer> frontNode = pendingNodes.dequeue();
+                String s = frontNode.data + ":";
+                for (int i = 0; i < frontNode.children.size(); i++) {
+                    s += frontNode.children.get(i).data + ",";
+                    pendingNodes.enqueue(frontNode.children.get(i));
+                }
+                System.out.println(s);
+
+            } catch (queueEmptyException e) {
+                // should not come here
+            }
+
+        }
     }
 
     public static void main(String[] args) {
