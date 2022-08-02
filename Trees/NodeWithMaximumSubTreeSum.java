@@ -1,4 +1,6 @@
-public static int ReturnSumCalcMaxsumSubtree(TreeNode<Integer> root)  //by travel and change strategy we are returning sum of every subtree and in the way we will get opportunity to find maximum subtree sum also for that we are maintaining the global variables to store the maximum values 
+static int ms = Integer.MIN_VALUE;  //global variables 
+    static int msn = 0;
+    public static int ReturnSumCalcMaxsumSubtree(TreeNode<Integer> root)  //by travel and change strategy we are returning sum of every subtree and in the way we will get opportunity to find maximum subtree sum also for that we are maintaining the global variables to store the maximum values 
     {
        int sum = 0;
        for(int i = 0;i<root.children.size();i++)
