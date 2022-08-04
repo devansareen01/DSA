@@ -1,34 +1,27 @@
+
 import java.util.Scanner;
 
-public class LinkListUse {
+public class deleteInLL {
 
-    public static int length(Node<Integer> head) {
-        int size = 0;
-        Node<Integer> temp = head;
-        while (temp != null) {
-            temp = temp.next;
-            size++;
+    public static Node<Integer> DeleteInLL(Node<Integer> head, int pos) {
+        if (head == null) {
+            return head;
         }
-
-        return size;
-    }
-
-    public static Node<Integer> insert(Node<Integer> head, int val, int pos) {
-
-        Node<Integer> newNode = new Node<Integer>(val);
         if (pos == 0) {
-            newNode.next = head;
-            return newNode;
+            head = head.next;
+            return head;
         }
-        int i = 0;
         Node<Integer> temp = head;
-        while (i < pos - 1) {
+        int i = 0;
+        while (temp != null && i < pos - 1) {
             temp = temp.next;
             i++;
         }
-        newNode.next = temp.next;
-        temp.next = newNode;
-
+        if (temp == null || temp.next == null) {
+            return head;
+        } else {
+            temp.next = temp.next.next;
+        }
         return head;
     }
 
@@ -61,10 +54,10 @@ public class LinkListUse {
     }
 
     public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
         Node<Integer> head = takeInput();
-        head = insert(head, 50, 2);
+        int pos = scn.nextInt();
+        head = DeleteInLL(head, pos);
         print(head);
-        System.out.println(length(head));
-
     }
 }
