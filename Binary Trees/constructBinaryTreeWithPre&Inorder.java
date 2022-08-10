@@ -23,7 +23,7 @@ class Solution {
              TreeNode node = new TreeNode(preorder[psi]);
              
              int idx = isi;
-             while(inorder [idx] != preorder[psi]); // first element of preorder element is our root
+             while(inorder [idx] != preorder[psi]); // first element of preorder element is our root because in pre order root is a first element
              idx++;
              
              int cols = idx - isi;// cols = count of left subtree nodes
