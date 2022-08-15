@@ -1,4 +1,4 @@
-public class removeLeafs {// to be commit on git
+public class removeLeafs {
     public static BinaryTreeNode removeLeafs(BinaryTreeNode<Integer> root) {
         if (root == null) {
             return null;
