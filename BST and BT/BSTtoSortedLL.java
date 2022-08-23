@@ -27,8 +27,8 @@ public class Solution
      Inorder(root.left);
         prev.left = null;//inorder traversal will flatten the tree in sorted form
         prev.right = root;
-        prev = root;
-        Inorder(root.right);
+        prev = root;// prev will be our curr node now
+        Inorder(root.right);//
     }
     public static TreeNode<Integer> flatten(TreeNode<Integer> root)
     {
