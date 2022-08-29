@@ -57,39 +57,33 @@ public class BST {
         root = deleteHelper(root, data);
     }
 
-    private BinaryTreeNode<Integer> deleteHelper(BinaryTreeNode<Integer> root, int data) {
-        if (root == null)
+    private BinaryTreeNode<Integer> deleteHelper(BinaryTreeNode<Integer> root, int X) {
+        if (root == null) {
             return null;
-        if (data > root.data) {
-            root.left = deleteHelper(root.right, data);
-            return root;
-        } else if (data < root.data) {
-            root.right = deleteHelper(root.left, data);
-            return root;
-        } else {
-            if (root.left == null && root.right == null) {
-                return null;
-            }
+        }
+        if (X < root.data) {
+            root.left = deleteHelper(root.left, X);
+
+        } else if (X > root.data) {
+            root.right = deleteHelper(root.right, X);
+        }
+
+        else {
             if (root.left == null)
                 return root.right;
             else if (root.right == null)
                 return root.left;
+
             else {
-                BinaryTreeNode<Integer> succ = getSucc(root);
+                BinaryTreeNode<Integer> succ = root.right;
+                while (succ != null && succ.left != null) {
+                    succ = succ.left;
+                }
                 root.data = succ.data;
                 root.right = deleteHelper(root.right, succ.data);
             }
-
         }
         return root;
-    }
-
-    private BinaryTreeNode<Integer> getSucc(BinaryTreeNode<Integer> root) {
-        BinaryTreeNode<Integer> curr = root.right;
-        while (curr != null && curr.left != null) {
-            curr = curr.left;
-        }
-        return curr;
     }
 
     public static void main(String[] args) {
@@ -100,7 +94,7 @@ public class BST {
         root.insert(40);
         root.insert(50);
         System.out.println(root.hasData(10));
-
+        root.delete(20);
         System.out.println(root.hasData(20));
 
     }
