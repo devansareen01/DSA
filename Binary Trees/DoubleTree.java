@@ -8,9 +8,9 @@ public class doubleTree {
 
         doubleTree(root.left);
         doubleTree(root.right);
-        oldLeft = root.left;
-        root.left = new BinaryTreeNode<Integer>(root.data);
-        root.left.left = oldLeft;
+        oldLeft = root.left;// storing the reference of left
+        root.left = new BinaryTreeNode<Integer>(root.data);// connecting duplicate node to left
+        root.left.left = oldLeft;// updating olf left node at right position
     }
 
     public static void main(String[] args) {
