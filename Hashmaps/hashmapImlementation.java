@@ -26,7 +26,7 @@ public class Map<K, V> {
         for (int i = 0; i < 5; i++) {
             buckets.add(null);
         }
-    }
+    }//
 
     public int getBucketindex(K key) {
         int hashcode = key.hashCode(); // hashcode is the hexadecimal adress of the classes this function is in the
