@@ -2,27 +2,32 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class pairSumToZero {
-    static int count = 0;
+    public static class pair {
+        public int count;
+        public ArrayList<Integer> ans;
 
-    public static ArrayList<Integer> util(ArrayList<Integer> arr) {
+    }
+
+    public static pair util(ArrayList<Integer> arr) {
         HashMap<Integer, Integer> map = new HashMap<>();
-        ArrayList<Integer> ans = new ArrayList<>();
+        pair output = new pair();
+        output.ans = new ArrayList<>();
+        output.count = 0;
         for (int i : arr) {
-            int complment = map.getOrDefault(-i, 0);// we are adding negative of given number by this when we find positive of this number in our hashmap we can return it as pair
+            int complment = map.getOrDefault(-i, 0);
             if (complment > 0) {
-                ans.add(i);
-                ans.add(-i);
-                count += complment;
+                output.ans.add(i);
+                output.ans.add(-i);
+                output.count += complment;
             }
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
-        return ans;
+        return output;
 
     }
 
     public static int ZeroPairSum(int n, ArrayList<Integer> arr) {
-        ArrayList<Integer> ans = util(arr);
-        System.err.println(ans);
+        int count = util(arr).count;
         return count;
     }
 
@@ -34,5 +39,13 @@ public class pairSumToZero {
         sum.add(2);
         sum.add(3);
         System.out.println(ZeroPairSum(sum.size(), sum));
+        ArrayList<Integer> sum1 = new ArrayList<>();
+        sum1.add(1);
+        sum1.add(2);
+        sum1.add(3);
+        sum1.add(4);
+        sum1.add(5);
+        System.out.println(ZeroPairSum(sum1.size(), sum1));
+
     }
 }
