@@ -1,6 +1,8 @@
-class Solution 
+import java.util.PriorityQueue;
+
+public class sortAnArray
 { 
-    int[] sortArr(int[] arr, int n) 
+   public static int[] sortArr(int[] arr, int n) 
     { 
         int ans[] = new int[n];
         PriorityQueue<Integer> pq = new PriorityQueue<>();
