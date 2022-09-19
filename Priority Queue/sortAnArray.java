@@ -8,6 +8,7 @@ public class sortAnArray
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for(int i =0;i<n ;i++){
             pq.add(arr[i]);
+            
         }
         for(int i =0;i<n;i++){
             ans[i]=pq.poll();
