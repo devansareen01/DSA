@@ -1,3 +1,5 @@
+import java.util.Scanner;
+// loot house question of cn
 public class findMaxSum {
     public static int findMaxSum(int arr[], int n) {
         int inc = arr[0];// we include previous exclude and self
