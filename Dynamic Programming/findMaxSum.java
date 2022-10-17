@@ -4,7 +4,7 @@ public class findMaxSum {
     public static int findMaxSum(int arr[], int n) {
         int inc = arr[0];// we include previous exclude and self
         int exc = 0;// and we exclude maxmimum of previous exclude and include
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < n; i++) {// that is greedy aproach
             int newinc = exc + arr[i];
             int newexc = Math.max(exc, inc);
 
