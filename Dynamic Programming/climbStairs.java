@@ -5,7 +5,8 @@ public class climbStairs {
 
     public static int countp(int n) {
         int dp[] = new int[n + 1];
-        for (int i = 0; i < n; i++) {
+        dp[0]=1;
+        for (int i = 1; i <= n; i++) {
             if (i == 1) {
                 dp[i] = dp[i - 1];
             } else if (i == 2) {
