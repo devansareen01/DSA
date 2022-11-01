@@ -3,19 +3,22 @@ import java.util.*;
 // package Buy and sell stocks problem;
 
 public class BuyAndSellOneTracAllowed {
-    public static int maximumProfit(int prices[]) {
-        int lsf = Integer.MAX_VALUE;// least so far
-        int psit = 0;// profit if sell today
+    public static int MaximumProfit(int prices[]) {
+        int buy = 0;
+        int sell = 1;
         int op = 0;// overall profit
+
         for (int i = 0; i < prices.length; i++) {
-            if (lsf > prices[i]) {// if current price is less than perivous ones update lsf
-                lsf = prices[i];
+            if (prices[buy] < prices[sell]) {// we cannot buy if sell at lower amount of buying
+                op += prices[sell] - prices[buy];
+
+            }
+            if (sell == prices.length - 1) {
+                break;
             }
 
-            psit = prices[i] - lsf;// current price minus least price is our profit of current day
-            if (op < psit) {
-                op = psit;
-            }
+            buy++;
+            sell++;
         }
         return op;
     }
